@@ -1,4 +1,9 @@
 import { registerRootComponent } from 'expo';
-import App from './App';
+import React from 'react';
+import InitialScreen from './src/screens/InitialScreen';
+
+export default function App() {
+  return <InitialScreen />;
+}
 
 registerRootComponent(App);
