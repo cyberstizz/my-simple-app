@@ -1,9 +1,17 @@
 import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export default function LoadingScreen({ navigation }) {
+type RootStackParamList = {
+  Initial: undefined;
+  Loading: undefined;
+  Results: undefined;
+};
+
+type Props = NativeStackScreenProps<RootStackParamList, 'Loading'>;
+
+export default function LoadingScreen({ navigation }: Props) {
   useEffect(() => {
-    // Simulate a loading delay
     const timer = setTimeout(() => {
       navigation.navigate('Results');
     }, 3000);

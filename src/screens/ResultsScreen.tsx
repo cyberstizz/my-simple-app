@@ -1,7 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export default function ResultsScreen() {
+type RootStackParamList = {
+  Initial: undefined;
+  Loading: undefined;
+  Results: undefined;
+};
+
+type Props = NativeStackScreenProps<RootStackParamList, 'Results'>;
+
+export default function ResultsScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Results</Text>

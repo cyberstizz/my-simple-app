@@ -1,26 +1,25 @@
-import React, { useState } from 'react';
-import { View, Text, Picker, Button, StyleSheet } from 'react-native';
+import React from 'react';
+import { View, Text, Button, StyleSheet, } from 'react-native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export default function InitialScreen({ navigation }) {
-  const [age, setAge] = useState('18-25');
-  const [income, setIncome] = useState('20000-50000');
+type RootStackParamList = {
+  Initial: undefined;
+  Loading: undefined;
+  Results: undefined;
+};
 
+type Props = NativeStackScreenProps<RootStackParamList, 'Initial'>;
+
+export default function InitialScreen({ navigation }: Props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Select Preferences</Text>
-      <Picker selectedValue={age} onValueChange={(value) => setAge(value)}>
-        <Picker.Item label="18-25" value="18-25" />
-        <Picker.Item label="26-35" value="26-35" />
-      </Picker>
-      <Button
-        title="Next"
-        onPress={() => navigation.navigate('Loading')}
-      />
+      <Text style={styles.text}>Welcome to the Initial Screen</Text>
+      <Button title="Go to Loading Screen" onPress={() => navigation.navigate('Loading')} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, justifyContent: 'center', padding: 20 },
-  title: { fontSize: 24, marginBottom: 20 },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  text: { fontSize: 24 },
 });
