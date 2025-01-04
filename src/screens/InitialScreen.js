@@ -12,7 +12,10 @@ export default function InitialScreen({ navigation }) {
         <Picker.Item label="18-25" value="18-25" />
         <Picker.Item label="26-35" value="26-35" />
       </Picker>
-      <Button title="Next" onPress={() => navigation.navigate('Loading')} />
+      <Button
+        title="Next"
+        onPress={() => navigation.navigate('Loading')}
+      />
     </View>
   );
 }
